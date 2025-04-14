@@ -1,4 +1,5 @@
 import bookModel from "../models/bookModel.js";
+import { uploadToCloudinary } from "../services/cloudinaryService.js";
 
 // Get All Books
 export const getAllBooks = async (req, res) => {
@@ -27,8 +28,14 @@ export const createBook = async (req, res) => {
   const { name } = req.body;
   const authorId = req.user.id;
   try {
+    let image = "";
+    if (req.file) {
+      image = await uploadToCloudinary(req.file.buffer);
+    }
+
     const book = new bookModel({
       name,
+      imageUrl: image.url,
       author: authorId,
     });
 

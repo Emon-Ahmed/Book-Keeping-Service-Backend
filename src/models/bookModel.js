@@ -6,11 +6,15 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String,
+    },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
       required: true,
     },
+
     library: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Library",
