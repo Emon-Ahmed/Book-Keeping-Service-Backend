@@ -11,14 +11,14 @@ export const borrowBook = async (req, res, next) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
 
     if (book.status !== "available") {
       return res.status(400).json({
         success: false,
-        message: "Book is not available for borrowing",
+        message: res.__("Book is not available for borrowing"),
       });
     }
 
@@ -32,18 +32,18 @@ export const borrowBook = async (req, res, next) => {
     res.json({
       success: true,
       data: book,
-      message: "Book borrowed successfully",
+      message: res.__("Book borrowed successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -56,14 +56,14 @@ export const returnBook = async (req, res, next) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found by Id",
+        message: res.__("Book Not Found"),
       });
     }
 
     if (book.status !== "borrowed") {
       return res.status(400).json({
         success: false,
-        message: "Book is not currently borrowed",
+        message: res.__("Book is not currently borrowed"),
       });
     }
 
@@ -78,18 +78,18 @@ export const returnBook = async (req, res, next) => {
     res.json({
       success: true,
       data: book,
-      message: "Book returned successfully",
+      message: res.__("Book returned successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };

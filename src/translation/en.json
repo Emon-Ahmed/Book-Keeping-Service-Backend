@@ -1,3 +1,27 @@
 {
-  "Message": "Welcome!"
+  "Auth Missing Data": "Missing user information",
+  "User Already Exists": "User already registered",
+  "Server Error": "Server error occurred",
+  "Email & Password are required": "Email and password required",
+  "Invalid email or password": "Invalid credentials",
+  "Logged Out": "Logout successful",
+  "Book Not Found": "Book not found",
+  "Books Fetched": "Books loaded",
+  "Book Created": "Book added",
+  "Book retrieved successfully": "Book details loaded",
+  "Book updated successfully": "Book updated",
+  "Book deleted successfully": "Book removed",
+  "Book is not available for borrowing": "Book unavailable",
+  "Book borrowed successfully": "Book checked out",
+  "Book is not currently borrowed": "Book not checked out",
+  "Book returned successfully": "Book returned",
+  "Library not found": "Library not found",
+  "Libraries retrieved successfully": "Libraries loaded",
+  "Library created successfully": "Library added",
+  "Library updated successfully": "Library updated",
+  "Library deleted successfully": "Library removed",
+  "Library inventory retrieved successfully": "Inventory loaded",
+  "Book added to library inventory successfully": "Book added to inventory",
+  "Book not found in this library": "Book not in this library",
+  "Book removed from library inventory successfully": "Book removed from inventory"
 }

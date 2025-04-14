@@ -13,12 +13,12 @@ export const getAllBooks = async (req, res) => {
     res.json({
       success: true,
       data: books,
-      message: "Books Fetch Done",
+      message: res.__("Books Fetched"),
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Try Again",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -44,12 +44,12 @@ export const createBook = async (req, res) => {
     res.status(201).json({
       success: true,
       data: book,
-      message: "Book Created Done",
+      message: res.__("Book Created"),
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Try Again",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -66,25 +66,25 @@ export const getBook = async (req, res) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
 
     res.json({
       success: true,
       data: book,
-      message: "Book retrieved successfully",
+      message: res.__("Book retrieved successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -107,25 +107,25 @@ export const updateBook = async (req, res) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
 
     res.json({
       success: true,
       data: book,
-      message: "Book updated successfully",
+      message: res.__("Book updated successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -138,25 +138,25 @@ export const deleteBook = async (req, res) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
 
     res.json({
       success: true,
       data: {},
-      message: "Book deleted successfully",
+      message: res.__("Book deleted successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };

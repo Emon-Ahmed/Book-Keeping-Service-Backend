@@ -9,7 +9,7 @@ export const register = async (req, res) => {
   if (!name || !email || !password) {
     return res
       .status(400)
-      .json({ success: false, message: "Missing User Data" });
+      .json({ success: false, message: res.__("Auth Missing Data") });
   }
 
   try {
@@ -20,7 +20,7 @@ export const register = async (req, res) => {
         data: {
           email: exitingUser.email,
         },
-        message: "User Already Exists",
+        message: res.__("User Already Exists"),
       });
     }
 
@@ -48,7 +48,7 @@ export const register = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error?.message });
+    res.status(500).json({ success: false, message: res.__("Server Error") });
   }
 };
 
@@ -58,7 +58,7 @@ export const login = async (req, res) => {
   if (!email || !password) {
     return res.status(400).json({
       success: false,
-      message: "Email & Password are required",
+      message: res.__("Email & Password are required"),
     });
   }
   try {
@@ -66,13 +66,13 @@ export const login = async (req, res) => {
     if (!user) {
       return res
         .status(401)
-        .json({ success: false, message: "Invalid email or password" });
+        .json({ success: false, message: res.__("Invalid email or password") });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res
         .status(401)
-        .json({ success: false, message: "Invalid email or password" });
+        .json({ success: false, message: res.__("Invalid email or password") });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
@@ -93,7 +93,7 @@ export const login = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error?.message });
+    res.status(500).json({ success: false, message: res.__("Server Error") });
   }
 };
 
@@ -105,8 +105,10 @@ export const logout = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     });
-    return res.status(200).json({ success: true, message: "Logged Out" });
+    return res
+      .status(200)
+      .json({ success: true, message: res.__("Logged Out") });
   } catch (error) {
-    res.status(500).json({ success: false, message: error?.message });
+    res.status(500).json({ success: false, message: res.__("Server Error") });
   }
 };

@@ -1,3 +1,27 @@
 {
-  "Message": "स्वागत है!"
+  "Auth Missing Data": "उपयोगकर्ता जानकारी गायब है",
+  "User Already Exists": "उपयोगकर्ता पहले से मौजूद है",
+  "Server Error": "सर्वर में त्रुटि हुई",
+  "Email & Password are required": "ईमेल और पासवर्ड आवश्यक है",
+  "Invalid email or password": "गलत ईमेल या पासवर्ड",
+  "Logged Out": "सफलतापूर्वक लॉग आउट किया गया",
+  "Book Not Found": "पुस्तक नहीं मिली",
+  "Books Fetched": "पुस्तकें लोड की गईं",
+  "Book Created": "पुस्तक जोड़ी गई",
+  "Book retrieved successfully": "पुस्तक विवरण लोड किया गया",
+  "Book updated successfully": "पुस्तक अपडेट की गई",
+  "Book deleted successfully": "पुस्तक हटाई गई",
+  "Book is not available for borrowing": "पुस्तक उपलब्ध नहीं है",
+  "Book borrowed successfully": "पुस्तक इश्यू (Issue) की गई",
+  "Book is not currently borrowed": "पुस्तक इश्यू नहीं की गई है",
+  "Book returned successfully": "पुस्तक वापस की गई",
+  "Library not found": "लाइब्रेरी नहीं मिली",
+  "Libraries retrieved successfully": "लाइब्रेरीज़ लोड की गईं",
+  "Library created successfully": "लाइब्रेरी जोड़ी गई",
+  "Library updated successfully": "लाइब्रेरी अपडेट की गई",
+  "Library deleted successfully": "लाइब्रेरी हटाई गई",
+  "Library inventory retrieved successfully": "इन्वेंटरी लोड की गई",
+  "Book added to library inventory successfully": "पुस्तक इन्वेंटरी में जोड़ी गई",
+  "Book not found in this library": "यह पुस्तक इस लाइब्रेरी में नहीं है",
+  "Book removed from library inventory successfully": "पुस्तक इन्वेंटरी से हटाई गई"
 }

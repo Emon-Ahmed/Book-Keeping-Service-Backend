@@ -8,12 +8,12 @@ export const getAllLibraries = async (req, res, next) => {
     res.json({
       success: true,
       data: libraries,
-      message: "Libraries retrieved successfully",
+      message: res.__("Libraries retrieved successfully"),
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -32,25 +32,25 @@ export const getLibrary = async (req, res, next) => {
     if (!library) {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
 
     res.json({
       success: true,
       data: library,
-      message: "Library retrieved successfully",
+      message: res.__("Libraries retrieved successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -69,12 +69,12 @@ export const createLibrary = async (req, res) => {
     res.status(201).json({
       success: true,
       data: library,
-      message: "Library created successfully",
+      message: res.__("Library created successfully"),
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -93,25 +93,25 @@ export const updateLibrary = async (req, res, next) => {
     if (!library) {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
 
     res.json({
       success: true,
       data: library,
-      message: "Library updated successfully",
+      message: res.__("Library updated successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -124,7 +124,7 @@ export const deleteLibrary = async (req, res, next) => {
     if (!library) {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
 
@@ -133,18 +133,18 @@ export const deleteLibrary = async (req, res, next) => {
     res.json({
       success: true,
       data: {},
-      message: "Library deleted successfully",
+      message: res.__("Library deleted successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -160,12 +160,12 @@ export const getLibraryInventory = async (req, res, next) => {
       success: true,
       count: books.length,
       data: books,
-      message: "Library inventory retrieved successfully",
+      message: res.__("Library inventory retrieved successfully"),
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -183,7 +183,7 @@ export const addBookToInventory = async (req, res, next) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
 
@@ -195,7 +195,7 @@ export const addBookToInventory = async (req, res, next) => {
     if (!library) {
       return res.status(404).json({
         success: false,
-        message: "Library not found",
+        message: res.__("Library not found"),
       });
     }
     res.json({
@@ -209,18 +209,18 @@ export const addBookToInventory = async (req, res, next) => {
           books: library.books,
         },
       },
-      message: "Book added to library inventory successfully",
+      message: res.__("Book added to library inventory successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };
@@ -239,25 +239,25 @@ export const removeBookFromInventory = async (req, res, next) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "Book not found in this library",
+        message: res.__("Book not found in this library"),
       });
     }
 
     res.json({
       success: true,
       data: book,
-      message: "Book removed from library inventory successfully",
+      message: res.__("Book removed from library inventory successfully"),
     });
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(404).json({
         success: false,
-        message: "Book not found",
+        message: res.__("Book Not Found"),
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: res.__("Server Error"),
     });
   }
 };

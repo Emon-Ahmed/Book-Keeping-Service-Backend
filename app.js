@@ -44,10 +44,6 @@ app.use("/api/books", bookRoutes);
 app.use("/api/borrow", borrowRoutes);
 app.use("/api/library", libraryRoutes);
 
-app.get("/", (req, res) => {
-  res.send({ id: 1, name: res.__("Message") });
-});
-
 // Server Start
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
